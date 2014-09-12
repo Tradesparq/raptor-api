@@ -1,0 +1,17 @@
+{
+  "name": "raptor-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.9.0",
+    "pg": "^3.4.2",
+    "sequelize": "^1.7.10"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

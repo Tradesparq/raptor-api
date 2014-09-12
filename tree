@@ -1,0 +1,32 @@
+/api                                ## REST API APP
+  /config                           ## Configure files 配置文件目录
+    config.js                       ## Configure 主配置文件
+    express.js                      ## Express 配置
+    sequelize.js                    ## Sequelize 配置
+    solr.js                         ## Solr 配置
+    ...
+  /controllers                      ## Controllers 控制器类目录
+  /models                           ## Sequelize Models MySQL ORM模型类  //定义postgresql数据类型
+  /modules                          ## Custom Modules 自定义模块
+  /node_modules                     ## Node Modules Nodejs 模块
+  /routes                           ## Routes 路由映射  //根据地址调用不同的ctrl
+  /schema                           ## Schema API资源字段／属性组合模型定义  //定义搜索字段,默认查询关键字,所有可查询关键字
+  .gitignore
+  README.md                         ## Introduction file
+  app.js                            ## App main file
+  package.json                      ## Base nodejs app package config file
+
+
+
+从线上下载数据,下载数据到本地
+搭建pg导入sql
+搭建sequelize 连接 pg
+没有返回用户要求的结果
+查询不包含solr中属性的搜索
+用户请求某物品详细内容
+
+查询solr
+
+psql scp
+solr-client
+sequelize

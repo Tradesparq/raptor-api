@@ -40,3 +40,38 @@ sequelize
       console.log('success')
     }
   })
+
+sequelize
+  .sync({ force: true })
+  .complete(function(err) {
+     if (!!err) {
+       console.log('An error occurred while creating the table:', err)
+     } else {
+       console.log('It worked!')
+     }
+  })
+var User = sequelize.define('User', {
+  username: Sequelize.STRING,
+  password: Sequelize.STRING
+}, {
+  tableName: 'market_product', // this will define the table's name
+  timestamps: false           // this will deactivate the timestamp columns
+})
+User
+  .find({where: { id: '2'}})
+  .complete(function(err, item) {
+    if (!!err) {
+      console.log('An error occurred while searching:', err)
+    } else if (!item) {
+      console.log('Not found.')
+    } else {
+
+      console.log('market_id :', item.values.market_id)
+    }
+  })
+
+app.get('/id/:id', function(req,res) {
+    res.send(function() {
+    
+    })
+  })

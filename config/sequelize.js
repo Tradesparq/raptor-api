@@ -1,6 +1,3 @@
-
-
-
 var Sequelize = require('sequelize')
     ,sequelize = new Sequelize('market', 'postgres', '123456', {
       dialect: "postgres",

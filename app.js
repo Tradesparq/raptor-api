@@ -12,6 +12,7 @@
 
 var http = require('http');
 var app = require('express')();
+var q = require('./controllers/query');
 // var routes = require('routes');
 var user = require('./modules/sequelize');
 app.use(function(req,res,next) {
@@ -28,27 +29,6 @@ app.listen(3000);
 
 
 
-function searchById (id){
-
-    user
-      .find({where: { 'id': id}})
-      .complete(function(err, item) {
-        if (!!err) {
-          return('error', err)
-        } else if (!item) {
-          return('Not found.')
-        } else {
-
-          return('val',item.values.val)
-        }
-      })
-
-
-
-
-}
-
-
 app.get('/id/:id', function(req,res) {
-    res.send(searchById(req.param('id')));
+    res.send(q.searchById(req.param('id')));
   })

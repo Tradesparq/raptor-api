@@ -12,8 +12,8 @@
 
 var http = require('http');
 var app = require('express')();
-var q = require('./controllers/query');
-// var routes = require('routes');
+
+var routes = require('./routes');
 var user = require('./modules/sequelize');
 app.use(function(req,res,next) {
   console.log("request" + req.method + " to " + req.url);
@@ -26,9 +26,11 @@ app.use(function(req,res,next) {
 // })
 
 app.listen(3000);
+app.get('/market_product/',routes.searchProduct);
+app.get('/market_seller/',routes.searchSeller);
+// app.get('/src/:src',routes.searchBySource);
+// app.get('/mId/:mId',routes.searchByMarketId);
+// app.get('/all?where id < asda and XXXXX',routes.searchAll);
+//
 
-
-
-app.get('/id/:id', function(req,res) {
-    res.send(q.searchById(req.param('id')));
-  })
+// '/market_product?fields=id,source,asdasd&where="sdasd"'

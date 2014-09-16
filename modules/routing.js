@@ -14,8 +14,8 @@ var fs = require('fs');
 module.exports = function(path, app, passport) {
 	// fs.readdirSync(path).forEach(function(file) {
 	// 	if (process.env.DEBUG_CONSOLE == 'true') console.log('require route %s/%s', path, file);
-	// 	require(path + '/' + file);
-	// 	// require(path + '/' + file)(app, passport);
+	// 	// require(path + '/' + file);
+	// 	require(path + '/' + file)(app, passport);
 	// });
 	require('../routes/market_product')(app, passport)
 	require('../routes/market_seller')(app, passport)

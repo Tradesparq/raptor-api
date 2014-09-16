@@ -26,6 +26,8 @@ app.use(function(req,res,next) {
   console.log("request" + req.method + " to " + req.url);
   next();
 })
+// express settings
+require('./config/express')(app, config); // , sequelize, passport
 
 // app.use('/',function(req,res,next) {
 //   res.writeHead(200, {"Content-Type": "text/plain"});

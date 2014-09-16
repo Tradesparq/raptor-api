@@ -12,6 +12,7 @@ var Rest = module.exports = function Rest(options) {
   options = options || {};
   this.model = options.model !== undefined ? options.model : null;
   this.schema = options.schema !== undefined ? options.schema : null;
+  return this;
 };
 
 /**

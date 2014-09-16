@@ -1,8 +1,14 @@
-var market_product = require('../controllers/market_product.js');
-
+var Rest = require('../controllers/rest');
+var sequelize = require('../config/sequelize');
+var model = sequelize.import(__dirname + '/../models/market_product');
+var schema = require('../schema/market_product');
+var rest = new Rest({model: model, schema: schema});
 module.exports = function(app, passport) {
 
-	app.get('/market_product/:id', market_product.retrieve);
+	app.post('/market_product', rest.create.bind(rest));
+	app.get('/market_product/:id', rest.retrieve.bind(rest));
+	app.put('/market_product/:id', rest.update.bind(rest));
+	app.del('/market_product/:id', rest.destroy.bind(rest));
 
-	app.get('/market_product', market_product.search);
+	app.get('/market_product', rest.search.bind(rest));
 };

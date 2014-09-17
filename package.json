@@ -4,9 +4,11 @@
   "main": "app.js",
   "dependencies": {
     "express": "3.4.x",
+    "passport": "^0.2.1",
     "pg": "^3.4.2",
     "sequelize": "^1.7.10",
-    "ts-solr-client": "0.0.24"
+    "ts-solr-client": "0.0.25",
+    "underscore": "^1.7.0"
   },
   "devDependencies": {},
   "scripts": {

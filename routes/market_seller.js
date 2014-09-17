@@ -1,5 +1,5 @@
 var Rest = require('../controllers/rest');
-var sequelize = require('../config/sequelize');
+var sequelize = require('../modules/sequelize').get('db1');
 var model = sequelize.import(__dirname + '/../models/market_seller');
 var schema = require('../schema/market_seller');
 var rest = new Rest({model: model, schema: schema});

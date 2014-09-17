@@ -1,27 +1,49 @@
-// var seq = require('/modules/sequelize')
-var Sequelize = require('sequelize')
-var sequelize = require('../config/sequelize')
-sequelize
-  .authenticate()
-  .complete(function(err) {
-    if(!!err) {
-      console.log('err',err)
-    } else {
-      console.log('success')
+// Load configurations
+var env = process.env.NODE_ENV || 'development';
+var config = require('../config/config')[env];
+
+/**
+ * Class singleton
+ */
+var singleton = function singleton() {
+  var instances = {};
+
+  this.set = function(dbNum) {
+    if (config.db[dbNum] === undefined) {
+      throw new Error("There is no \"" + dbNum + "\" in the db config file");
     }
-  })
+    instances[dbNum] = require('../config/sequelize')(config.db[dbNum]);
+  };
 
+  this.get = function(dbNum) {
+    if (instances[dbNum] === undefined) {
+      this.set(dbNum);
+    }
+    return instances[dbNum];
+  };
 
-  // var User = sequelize.define('User', {
-  //   username: Sequelize.STRING,
-  //   password: Sequelize.STRING
-  // }, {
-  //   tableName: 'market_product', // this will define the table's name
-  //   timestamps: false           // this will deactivate the timestamp columns
-  // })
-  //
-  // module.exports = User
-module.exports = {
-  product : sequelize.import("../models/market_product.js"),
-  seller : sequelize.import("../models/market_seller.js")
-}
+  this.getInstances = function() {
+    return instances;
+  };
+};
+
+/**
+ * SINGLETON CLASS DEFINITION
+ */
+singleton.instance = null;
+
+/**
+ * get singleton instance
+ */
+singleton.getInstance = function() {
+  if (this.instance === null) {
+    this.instance = new singleton();
+  }
+  return this.instance;
+};
+
+/**
+ * eg.
+ * var sequelize = require('./modules/sequelize').get('db1');
+ */
+module.exports = singleton.getInstance();

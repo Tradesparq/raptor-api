@@ -3,10 +3,11 @@ module.exports = {
     'update_time',
     'market_id',
     'source',
+    'data',
     'id',
+    'detail',
     'custom_description',
     'description',
-    'status'
   ],
   all: [
     'update_time',

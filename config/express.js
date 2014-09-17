@@ -1,5 +1,5 @@
 var express = require('express');
-// // var cors = require('./middlewares/cors');
+var cors = require('./middlewares/cors');
 
 module.exports = function(app, config) {
   // configure
@@ -38,7 +38,7 @@ module.exports = function(app, config) {
     // app.use(passport.initialize());
     // app.use(passport.session());
     //
-//     // app.use(cors);
+    app.use(cors);
 
     app.use(app.router);
 

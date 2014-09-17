@@ -19,4 +19,5 @@ module.exports = function(path, app, passport) {
 	// });
 	require('../routes/market_product')(app, passport)
 	require('../routes/market_seller')(app, passport)
+	require('../routes/search')(app, passport)
 };

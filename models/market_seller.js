@@ -1,6 +1,6 @@
 var Sequelize = require('sequelize')
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('market_product', {
+  return sequelize.define('market_seller', {
     update_time:{
       type: DataTypes.DATE,
       allowNull: false,

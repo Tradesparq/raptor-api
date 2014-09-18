@@ -1,8 +1,8 @@
 module.exports = {
   default: [
-    'update_time',
     'market_id',
     'source',
+    'data',
     'id'
   ],
   all: [

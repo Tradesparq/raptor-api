@@ -81,7 +81,7 @@ function scrapePage () {
         html: casper.getHTML()
       };
     } else {
-      this.scrollToBottomSoftly(2000);
+      // this.scrollToBottomSoftly(2000);
       data.result = this.evaluate(methods[0].method);
       if (!data.result) {
         data.error = {

@@ -24,7 +24,7 @@ module.exports = {
           return Array.prototype.map.call(items, function(element) {
             return {
               product_id: element.querySelector('input.atc-product-id').getAttribute('value'),
-              product_image_url: element.querySelector('div.img img.picCore').getAttribute("src"),
+              product_image_url: getImg(element),
               product_name: element.querySelector('h3 a.product').getAttribute("title"),
               product_rate: element.querySelector('span.rate-percent')? element.querySelector('span.rate-percent').style.width: null,
               product_url: element.querySelector('h3 a.product').getAttribute("href"),
@@ -36,6 +36,13 @@ module.exports = {
               source: 'Aliexpress'
             }
         });
+        function getImg(element) {
+          if(element.querySelector('div.img img.picCore').getAttribute("src")==null) {
+            return element.querySelector('div.img img.picCore').getAttribute("image-src")
+          } else {
+            return element.querySelector('div.img img.picCore').getAttribute("src")
+          }
+        }
       }
     }
   ]

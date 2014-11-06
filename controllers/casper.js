@@ -51,6 +51,7 @@ async.map(source, function(item, cb) {
       //     }
       //   }
       // })
+      var len = arr[index].result.length<=20?arr[index].result.length:20;
       for (var i = 0;i< 20; i++) {
         data[item][i] = {
           doclist: {

@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "app.js",
   "dependencies": {
+    "async": "^0.9.0",
     "express": "3.4.x",
     "passport": "^0.2.1",
     "pg": "^3.4.4",

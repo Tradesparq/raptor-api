@@ -17,7 +17,7 @@ var routes = require('./routes');
 var user = require('./modules/sequelize');
 var env = process.env.NODE_ENV || 'development';
 var config = require('./config/config')[env];
-var logger = require('../helper/log_helper').getLogger('app');
+var logger = require('./helper/log_helper').getLogger('app');
 logger.setLevel('INFO');
 // set a global variable to control debug
 process.env.DEBUG_CONSOLE = config.debug; // some npm modules used the DEBUG variable

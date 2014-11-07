@@ -13,7 +13,7 @@ source.forEach(function(item) {
 logger.info('start');
 async.map(source, function(item, cb) {
   child.exec('casperjs controllers/casper/reaper.casper.js ' + item + ' "' + keyword + '"', function(err, stdout, stderr) {
-    logger.info('casper 'item+' finish');
+    logger.info('casper '+item+' finish');
     if(err || stderr) {
       logger.error(err||stderr)
       cb(null, {result:[]});

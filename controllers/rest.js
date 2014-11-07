@@ -6,7 +6,8 @@ var querystring = require("querystring");
 
 var DEFAULT_PAGE_NUM = 1;
 var DEFAULT_PAGE_SIZE = 20;
-
+var logger = require('../helper/log_helper').getLogger('controllers-casper');
+logger.setLevel('INFO');
 // Base Rest Controller Class
 var Rest = module.exports = function Rest(options) {
   options = options || {};
@@ -78,7 +79,7 @@ Rest.prototype.create = function(req, res) {
     // Location: 'http://192.168.11.109:3030/<models>/' + data.id
   }).fail(function(err) {
     // TODO: log err and send warning email?
-    console.log('Rest.prototype.create', err);
+    logger.error('Rest.prototype.create', err);
     res.send(500, "Internal Server Error.");
   });
 };
@@ -136,7 +137,7 @@ Rest.prototype.retrieve = function(req, res) {
       }
     }).fail(function(err) {
       // TODO: log err and send warning email?
-      console.log('Rest.prototype.retrieve', err);
+      logger.error('Rest.prototype.retrieve', err);
       res.send(500, "Internal Server Error.");
     });
   }
@@ -225,7 +226,7 @@ Rest.prototype.update = function(req, res) {
           res.send(data);
         }).fail(function(err) {
           // TODO: log err and send warning email?
-          console.log('Rest.prototype.update', err);
+          logger.error('Rest.prototype.update', err);
           res.send(500, "Internal Server Error.");
         });
       } else {
@@ -238,7 +239,7 @@ Rest.prototype.update = function(req, res) {
     }
   }).fail(function(err) {
     // TODO: log err and send warning email?
-    console.log('Rest.prototype.update', err);
+    logger.error('Rest.prototype.update', err);
     res.send(500, "Internal Server Error.");
   });
 };
@@ -567,7 +568,7 @@ Rest.prototype.search = function(req, res) {
     }).fail(function(err) {
       // res.send(err);
       // TODO: log err and send warning email?
-      console.log('Rest.prototype.search', err);
+      logger.error('Rest.prototype.search', err);
       res.send(500, "Internal Server Error.");
     });
   }

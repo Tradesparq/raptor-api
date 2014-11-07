@@ -1,5 +1,9 @@
 .tags*
 
+# Config #
+###################
+config/config.js
+
 # Compiled source #
 ###################
 *.com
